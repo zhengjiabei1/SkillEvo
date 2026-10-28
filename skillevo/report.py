@@ -5,6 +5,8 @@ from html import escape
 import json
 from pathlib import Path
 
+from .risk import write_outputs as write_risk_outputs
+
 METHOD_ORDER = (
     "random", "semantic", "frequency", "logistic", "temperature",
     "isotonic", "fewshot", "isotonic_budget",
@@ -261,6 +263,7 @@ def generate(results_path: str | Path = "experiments/results.json",
     _ablation_chart(aggregate.get("ablation", {}), figures / "ablation.svg")
     _memory_chart(aggregate["stream"], figures / "memory.svg")
     _heatmap(aggregate.get("transfer_matrix", {}), figures / "transfer_heatmap.svg")
+    risk = write_risk_outputs(results, output)
 
     lines = [
         "# SkillEvo experiment report",
@@ -296,14 +299,38 @@ def generate(results_path: str | Path = "experiments/results.json",
         "",
         "![Method comparison](figures/methods.svg)",
         "",
-        "## 2. Calibration",
+        "## 2. Risk-controlled reuse",
+        "",
+        "A gate either commits to the selected skill or falls back to the generic "
+        "baseline. Coverage is the fraction of tasks on which the gate commits; "
+        "risk is the fraction of committed tasks where the selected skill is worse "
+        "than the fallback by more than 0.02.",
+        "",
+        "| Method | Coverage@5% | Success@5% | Coverage@10% | Success@10% | Coverage@20% | Risk AUC |",
+        "|---|---:|---:|---:|---:|---:|---:|",
+    ]
+    for name in ("semantic", "logistic", "temperature", "isotonic", "fewshot", "proposed"):
+        row = risk.get(name)
+        if not row:
+            continue
+        metrics = row["metrics"]
+        lines.append(
+            f"| {name} | {_format(metrics['coverage@5%'])} | {_format(metrics['success@5%'])} | "
+            f"{_format(metrics['coverage@10%'])} | {_format(metrics['success@10%'])} | "
+            f"{_format(metrics['coverage@20%'])} | {_format(metrics['risk_auc'], 4)} |"
+        )
+    lines += [
+        "",
+        "![Coverage at fixed risk](figures/risk_bars.svg)",
+        "",
+        "## 3. Calibration",
         "",
         "Reliability diagram over all target-task candidate skills, averaged across seeds. "
         "The diagonal is perfect calibration.",
         "",
         "![Reliability](figures/reliability.svg)",
         "",
-        "## 3. Feature ablation",
+        "## 4. Feature ablation",
         "",
         "All variants use isotonic calibration and the same candidate pool; only the "
         "discriminator features change.",
@@ -320,7 +347,7 @@ def generate(results_path: str | Path = "experiments/results.json",
         "",
         "![Ablation](figures/ablation.svg)",
         "",
-        "## 4. Cross-task transfer diagnosis",
+        "## 5. Cross-task transfer diagnosis",
         "",
         "| Gate strategy | Success | Score | Negative transfer |",
         "|---|---:|---:|---:|",
@@ -356,7 +383,7 @@ def generate(results_path: str | Path = "experiments/results.json",
             )
     lines += [
         "",
-        "## 5. Tiered experience memory",
+        "## 6. Tiered experience memory",
         "",
         "Prequential evaluation on a held-out stream. Each method selects a skill before "
         "observing the outcome and then ingests the outcome.",
@@ -376,7 +403,7 @@ def generate(results_path: str | Path = "experiments/results.json",
         "",
         "![Memory](figures/memory.svg)",
         "",
-        "## 6. Paired tests",
+        "## 7. Paired tests",
         "",
         "| Comparison | Success delta | McNemar p | Score delta | Permutation p |",
         "|---|---:|---:|---:|---:|",

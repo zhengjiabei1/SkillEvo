@@ -9,4 +9,5 @@
 - Added short-term and long-term experience memory with deduplication and pruning.
 - Added Beta-binomial cross-task transfer diagnosis and gating.
 - Added three-seed experiment runner, CSV tables, Markdown report, and SVG figures.
+- Added risk-coverage analysis for commit/abstain decisions.
 - Added unit and end-to-end tests.

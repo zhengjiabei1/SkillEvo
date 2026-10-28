@@ -82,6 +82,8 @@ The default experiment uses seeds 0, 1, and 2.
   candidate solves the task.
 - **Brier / NLL / ECE:** probabilistic calibration of reuse predictions.
 - **P@1 / NDCG@5:** top-1 and top-5 ranking quality.
+- **Risk-coverage:** coverage at 5%, 10%, and 20% negative-transfer risk, plus
+  the area under the risk-coverage curve.
 - **Memory:** retained records, estimated characters, duplicate ratio, and
   compression ratio.
 

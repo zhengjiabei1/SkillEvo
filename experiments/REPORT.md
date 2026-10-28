@@ -18,13 +18,28 @@ Seeds: 0, 1, 2. Tasks per seed: {'source_train': 70, 'source_val': 28, 'target_d
 
 ![Method comparison](figures/methods.svg)
 
-## 2. Calibration
+## 2. Risk-controlled reuse
+
+A gate either commits to the selected skill or falls back to the generic baseline. Coverage is the fraction of tasks on which the gate commits; risk is the fraction of committed tasks where the selected skill is worse than the fallback by more than 0.02.
+
+| Method | Coverage@5% | Success@5% | Coverage@10% | Success@10% | Coverage@20% | Risk AUC |
+|---|---:|---:|---:|---:|---:|---:|
+| semantic | 0.857 | 0.583 | 0.857 | 0.583 | 1.000 | 0.0476 |
+| logistic | 0.992 | 0.688 | 1.000 | 0.683 | 1.000 | 0.0177 |
+| temperature | 0.992 | 0.688 | 1.000 | 0.683 | 1.000 | 0.0184 |
+| isotonic | 0.992 | 0.680 | 1.000 | 0.675 | 1.000 | 0.0177 |
+| fewshot | 0.992 | 0.688 | 1.000 | 0.683 | 1.000 | 0.0176 |
+| proposed | 1.000 | 0.698 | 1.000 | 0.698 | 1.000 | 0.0358 |
+
+![Coverage at fixed risk](figures/risk_bars.svg)
+
+## 3. Calibration
 
 Reliability diagram over all target-task candidate skills, averaged across seeds. The diagonal is perfect calibration.
 
 ![Reliability](figures/reliability.svg)
 
-## 3. Feature ablation
+## 4. Feature ablation
 
 All variants use isotonic calibration and the same candidate pool; only the discriminator features change.
 
@@ -38,7 +53,7 @@ All variants use isotonic calibration and the same candidate pool; only the disc
 
 ![Ablation](figures/ablation.svg)
 
-## 4. Cross-task transfer diagnosis
+## 5. Cross-task transfer diagnosis
 
 | Gate strategy | Success | Score | Negative transfer |
 |---|---:|---:|---:|
@@ -98,7 +113,7 @@ Each cell reports the mean probe utility and structural compatibility estimated 
 | burn->urban | proposed | 0.056 | 0.444 | 1.0 | 2.0 |
 | burn->urban | oracle | 0.056 | 0.000 | 0.0 | 2.0 |
 
-## 5. Tiered experience memory
+## 6. Tiered experience memory
 
 Prequential evaluation on a held-out stream. Each method selects a skill before observing the outcome and then ingests the outcome.
 
@@ -112,7 +127,7 @@ Prequential evaluation on a held-out stream. Each method selects a skill before 
 
 ![Memory](figures/memory.svg)
 
-## 6. Paired tests
+## 7. Paired tests
 
 | Comparison | Success delta | McNemar p | Score delta | Permutation p |
 |---|---:|---:|---:|---:|

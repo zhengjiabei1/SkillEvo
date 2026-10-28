@@ -9,6 +9,7 @@ python -m skillevo report
 
 - `results.json` — task-level records for every method, gate, pair, stream, and
   ablation, plus the cross-seed aggregate.
+- `risk_coverage.json` — risk-coverage curves and coverage at fixed risk.
 - `REPORT.md` — generated tables and figure links.
 - `tables/` — CSV versions of the main tables.
 - `figures/` — SVG figures used by the report.

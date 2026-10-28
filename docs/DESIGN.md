@@ -73,6 +73,23 @@ The default selector uses the structural feature set and isotonic calibration.
 The memory-enabled variant and the feature-subset ablation are reported
 separately.
 
+## Reuse gate and risk
+
+The selector is used as a gate. For a task `t`, a selected skill `s`, and the
+generic fallback `b`, define the utility delta `u = q(s, t) - q(b, t)`. A reuse
+is a negative transfer when `u < -0.02`. The gate either commits to `s` or
+abstains and falls back to `b`.
+
+Sweeping a threshold over the gate score gives a risk-coverage curve:
+
+- `coverage`: fraction of tasks on which the gate commits;
+- `risk`: fraction of committed tasks with negative transfer;
+- `coverage@r`: maximum coverage with empirical risk at most `r`.
+
+The report includes curves for description retrieval, logistic scores,
+temperature scaling, isotonic calibration, and the transfer gate. This view is
+closer to how a deployed agent uses the score than a single top-1 success rate.
+
 ## Tiered memory
 
 Memory receives an outcome record after each execution: skill, task family,

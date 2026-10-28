@@ -12,6 +12,7 @@ def main(argv: list[str] | None = None) -> int:
             "Commands:\n"
             "  experiment [--seeds 0,1,2] [--k 8] [--budget 3] [--output DIR]\n"
             "  report     [--results PATH] [--output DIR]\n"
+            "  risk       [--results PATH] [--output DIR]\n"
         )
         return 0
     command, rest = argv[0], argv[1:]
@@ -22,6 +23,9 @@ def main(argv: list[str] | None = None) -> int:
         sys.argv = ["skillevo-report", *rest]
         from .report import main as report_main
         return report_main()
+    if command == "risk":
+        from .risk import main as risk_main
+        return risk_main(rest)
     print(f"Unknown command: {command}", file=sys.stderr)
     return 2
 

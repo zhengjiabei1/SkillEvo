@@ -17,6 +17,7 @@ deterministic for a fixed seed.
 ```bash
 python -m skillevo experiment --seeds 0,1,2 --output experiments
 python -m skillevo report
+python -m skillevo risk
 python -m unittest discover -s tests
 ```
 
@@ -30,8 +31,10 @@ rebuilds `experiments/REPORT.md` and the SVG figures from
 experiments/
   results.json           task-level records and cross-seed aggregate
   REPORT.md              generated tables and figure links
+  risk_coverage.json
   tables/
     methods.csv
+    risk_coverage.csv
     transfer_gate.csv
     transfer_pairs.csv
     memory_stream.csv
@@ -42,6 +45,8 @@ experiments/
     ablation.svg
     memory.svg
     transfer_heatmap.svg
+    risk_coverage.svg
+    risk_bars.svg
 ```
 
 `results.json` is the source of truth. It contains every method, gate, pair,
