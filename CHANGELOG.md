@@ -2,6 +2,7 @@
 
 ## 0.1.0
 
+- Positioned SkillEvo as calibrated skill selection and tiered memory for tool-using agents, with the spatiotemporal benchmark as a case study.
 - Added deterministic seven-family spatiotemporal benchmark.
 - Added skill-library induction and canonical deduplication.
 - Added calibrated reuse discriminator with temperature and isotonic calibration.

@@ -1,4 +1,4 @@
-"""SkillEvo: calibrated skill selection and tiered memory for spatiotemporal tasks.
+"""SkillEvo: calibrated skill selection and tiered memory for tool-using agents.
 
 The package is deliberately dependency-free (Python standard library only) so
 that the reported experiments can be reproduced on a CPU-only machine.

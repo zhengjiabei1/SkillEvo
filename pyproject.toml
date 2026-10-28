@@ -5,13 +5,13 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "skillevo"
 version = "0.1.0"
-description = "Calibrated skill selection and tiered experience memory for spatiotemporal tasks"
+description = "Calibrated skill selection and tiered memory for tool-using agents"
 readme = "README.md"
 license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "Jiabei Zheng" }]
 requires-python = ">=3.11"
-keywords = ["skill-selection", "experience-memory", "transfer-learning", "spatiotemporal", "remote-sensing", "benchmark"]
+keywords = ["skill-selection", "experience-memory", "tool-using-agents", "transfer-learning", "spatiotemporal", "benchmark"]
 classifiers = [
   "Development Status :: 3 - Alpha",
   "Intended Audience :: Science/Research",

@@ -1,15 +1,13 @@
-# SkillEvo
-
-**Calibrated skill selection and tiered experience memory for spatiotemporal agents.**
+# SkillEvo: Calibrated Skill Selection and Tiered Memory for Tool-Using Agents
 
 SkillEvo is a self-contained, CPU-only benchmark and reference implementation for
-reusing analysis skills across geospatial tasks. It ships a deterministic
-seven-family scene generator, a skill-library induction pipeline, a calibrated
-reuse discriminator, a two-tier experience memory, and a cross-task transfer
-diagnosis.
+calibrated skill selection and tiered memory in tool-using agents. It ships a
+deterministic seven-family spatiotemporal case study, a skill-library induction
+pipeline, a calibrated reuse discriminator, a two-tier experience memory, and a
+cross-task transfer diagnosis.
 
 The project asks a practical question: a retrieved skill can be lexically
-similar to a task and still be unusable because its input regime, spectral
+similar to a task and still be unusable because its input contract, execution
 mechanism, or target semantics are incompatible. SkillEvo treats reuse as a
 probabilistic decision rather than a similarity lookup.
 

@@ -1,8 +1,9 @@
 # Design
 
 SkillEvo is a benchmark and reference implementation for selecting and reusing
-analysis skills across spatiotemporal tasks. This note describes the problem
-formulation, the three modules, and the main design decisions.
+skills in tool-using agents, with a spatiotemporal case study. This note
+describes the problem formulation, the three modules, and the main design
+decisions.
 
 ## Problem
 
