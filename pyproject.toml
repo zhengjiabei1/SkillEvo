@@ -1,0 +1,35 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "skillevo"
+version = "0.1.0"
+description = "Calibrated skill selection and tiered experience memory for spatiotemporal tasks"
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Jiabei Zheng" }]
+requires-python = ">=3.11"
+keywords = ["skill-selection", "experience-memory", "transfer-learning", "spatiotemporal", "remote-sensing", "benchmark"]
+classifiers = [
+  "Development Status :: 3 - Alpha",
+  "Intended Audience :: Science/Research",
+  "License :: OSI Approved :: MIT License",
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+dependencies = []
+
+[project.optional-dependencies]
+dev = []
+
+[project.scripts]
+skillevo = "skillevo.__main__:main"
+
+[tool.setuptools.packages.find]
+include = ["skillevo*"]
