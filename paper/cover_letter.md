@@ -2,7 +2,7 @@
 
 Dear Editor,
 
-We submit “SkillEvo: Calibrated Skill Selection and Tiered Experience Memory for Cross-Task Transfer in Spatiotemporal Agents” for consideration as a research article in the *IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing*.
+We submit “SkillEvo: Calibrated Skill Selection and Tiered Experience Memory for Cross-Task Transfer in Spatiotemporal Agents” for consideration as a research article.
 
 The manuscript studies a practical failure mode of skill-reuse agents for geospatial analysis: a procedure can be lexically similar to a task description and still be non-reusable because its input regime, spectral mechanism, or target semantics are incompatible. We replace similarity-only retrieval with a small calibrated reuse discriminator, add a two-tier experience memory, and introduce a compatibility-aware Beta-binomial transfer diagnosis that gates non-transferable skills before execution.
 

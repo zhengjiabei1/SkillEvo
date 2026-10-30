@@ -3,8 +3,6 @@
 **Jiabei Zheng**  
 Independent Researcher
 
-*Manuscript prepared for the IEEE Journal of Selected Topics in Applied Earth Observations and Remote Sensing (JSTARS).*
-
 ## Abstract
 
 Spatiotemporal agents increasingly rely on libraries of reusable analysis procedures (“skills”) induced from earlier remote-sensing workflows. The central question is not only how to retrieve a skill, but whether a retrieved skill will actually be reusable on a new task. Description embeddings answer the first question and are frequently used as a proxy for the second. We show that this proxy is brittle: lexically similar recipes can encode incompatible spectral mechanisms, input cardinality, or target semantics. We present SkillEvo, a module that combines a small calibrated reuse discriminator, a two-tier experience memory, and a transferability diagnosis for cross-task skill gating. The discriminator predicts the probability that a historical skill will succeed on a new task from retrieval and structural compatibility, with an optional family-conditioned memory variant; isotonic regression calibrates its probabilities on held-out tasks. The memory keeps recent episodes verbatim and consolidates long-term experience through deduplication and bounded compression. The transfer diagnosis estimates a Beta-binomial posterior over positive transfer on a small target probe split and blocks skills with weak structural and empirical support. On a controlled seven-family spatiotemporal benchmark, the calibrated selector raises top-1 success from 0.500 (description embedding) to 0.675 and mean task score from 0.505 to 0.629, while improving AUROC from 0.666 to 0.842 and reducing expected calibration error from 0.152 to 0.063. Transfer gating raises success to 0.698 and reduces negative transfer from 0.056 to 0.048. Tiered memory preserves success while reducing the retained experience footprint by 5.7× relative to flat memory and substantially improving calibration over a no-memory agent. We report a feature ablation showing that structural compatibility carries most of the selection signal in this benchmark; historical statistics mainly improve calibration and enable bounded memory. The benchmark and code are released for reproduction.
@@ -269,7 +267,7 @@ The experiment is deterministic given the seeds. `experiments/results.json` cont
 
 ## Data and code availability
 
-The benchmark, experiment runner, task-level results, and figure-generation code are included in this repository under `skillevo/` and `experiments/`. The experiment is deterministic for a fixed seed. No proprietary data are used. A DOI-archived release should be created before submission.
+The benchmark, experiment runner, task-level results, and figure-generation code are included in this repository under `skillevo/` and `experiments/`. The experiment is deterministic for a fixed seed. No proprietary data are used. A DOI-archived release should be created before release.
 
 ## Appendix B. Feature list
 

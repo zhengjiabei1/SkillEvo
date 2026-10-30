@@ -1,9 +1,4 @@
-# Submission checklist
-
-## Current target
-
-- **Primary:** IEEE JSTARS (methods + Earth-observation applications).
-- **Alternatives:** *International Journal of Applied Earth Observation and Geoinformation* (JAG), *Remote Sensing* (MDPI), IEEE GRSL (short format).
+# Paper checklist
 
 ## Artifacts in this repository
 
@@ -17,27 +12,24 @@
 - [x] Reproduction commands (README, Appendix A).
 - [x] Cover letter draft (`paper/cover_letter.md`).
 
-## Before submission
+## Open items
 
 - [ ] Add a real-data case study. The synthetic benchmark is the main scientific
-      weakness for an Earth-observation journal. At minimum, run one
-      land-cover and one change-detection dataset (e.g., EuroSAT/UC Merced and
-      LEVIR-CD/OSCD) through the same task/skill interfaces.
+      weakness. At minimum, run one land-cover and one change-detection dataset
+      (e.g. EuroSAT/UC Merced and LEVIR-CD/OSCD) through the same task/skill
+      interfaces.
 - [ ] Add a stronger baseline. Options: an LLM planner with the same tools, a
       learned-to-rank model, or a CLIP/RemoteCLIP text-image retriever. The
       current embedding baseline is deliberately simple and should be labelled
       as such.
 - [ ] Increase statistical power. Three seeds and 126 target tasks are adequate
-      for a diagnostic paper but modest for a journal. Add seeds or task
+      for a diagnostic study but modest for a full paper. Add seeds or task
       families.
-- [ ] Compile the LaTeX source and check the IEEEtran page limit. The local
-      environment does not include a TeX distribution.
-- [ ] Add author affiliation, ORCID, funding, and conflict-of-interest
-      statements required by the venue.
+- [ ] Compile the LaTeX source and check the page length.
+- [ ] Add author affiliation, ORCID, funding, and conflict-of-interest statements.
 - [ ] Add a data/code availability statement with a repository DOI (Zenodo or
       equivalent), not only a GitHub URL.
-- [ ] Check whether the venue requires a separate graphical abstract or
-      highlights.
+- [ ] Consider a graphical abstract or highlights.
 - [ ] Re-run `python -m skillevo experiment` after any code change and confirm
       that the manuscript numbers match `experiments/results.json`.
 
