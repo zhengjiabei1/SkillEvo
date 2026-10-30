@@ -75,6 +75,8 @@ Tiered memory keeps success flat while reducing calibration error from 0.232
 
 ## Documentation
 
+- [docs/SKILLEVO.md](docs/SKILLEVO.md) · [中文](docs/SKILLEVO.zh-CN.md) — research overview, method, protocol, results, limitations
+- [paper/](paper/) — manuscript draft (`skillevo.md` readable draft, `skillevo.tex` IEEEtran source)
 - [docs/DESIGN.md](docs/DESIGN.md)
 - [docs/BENCHMARK.md](docs/BENCHMARK.md)
 - [docs/REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md)
